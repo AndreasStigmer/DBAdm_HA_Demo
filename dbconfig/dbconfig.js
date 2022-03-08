@@ -1,7 +1,7 @@
 const config = {
     user:"<SQLServerUser>",
     password:"<Password>",
-    server:"<server>\\<instans>",
+    server:"<AG Listener>",
     database:"HA_DB",
     options: {
         trustedConnection:false,
