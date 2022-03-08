@@ -1,0 +1,87 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "Customer CRUD API",
+      "description": "Ett test API För kursen Databasadministration 7.5hp",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Customers",
+        "description": "API for Customers in HA Test App"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+        "paths": {
+          "/api/customers": {
+            "get": {
+              "tags": ["Customers"],
+              "summary": "Get all Customers in system",
+              "responses": {
+                "200": {
+                  "description": "OK",
+                  "schema": {
+                    "$ref": "#/definitions/Customers"
+                  }
+                }
+              }
+            }
+          },
+          "/api/customers/{id}": {
+            "get": {
+              "tags": ["Customer"],
+              "summary": "Get customer by ID",
+              "parameters":{
+                  "in":"path",
+                  "name":"id",
+                  "required":true,
+                  "type":"integer",
+                  "format":"int64",
+                  "description":"The requested customer id"
+              },
+              "responses": {
+                "200": {
+                  "description": "OK",
+                  "schema": {
+                    "$ref": "#/definitions/Customer"
+                  }
+                }
+              }
+            }
+          }
+
+
+        },
+        "definitions": {
+          "Customer": {
+            "required": ["customerId", "customerName","customerCategoryName" ],
+            "properties": {
+              "customerId": {
+                "type": "integer",
+                "uniqueItems": true
+              },
+              "customerName": {
+                "type": "string"
+              },
+              "customerCategoryName": {
+                "type": "string"
+              }
+              
+            }
+          },
+          "Customers": {
+            "type": "array",
+            "$ref": "#/definitions/Customer"
+          }
+        }
+      
+  }
+  
