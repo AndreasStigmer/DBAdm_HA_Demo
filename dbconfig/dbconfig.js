@@ -1,6 +1,6 @@
 const config = {
-    server:"Ag2.dbadm2023.local",
-    database:"HA_DB",
+    server:"<server name>",
+    database:"<database name>",
     driver: "msnodesqlv8",
     options: {
         trustedConnection: true 
