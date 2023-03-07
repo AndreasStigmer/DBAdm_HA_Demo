@@ -1,5 +1,6 @@
 var config=require('../dbconfig/dbconfig');
 const sql=require('mssql')
+const sql2 = require('mssql/msnodesqlv8');
 const querys=require('./sqlQuerys')
 
 async function getAllCustomers() {
@@ -15,7 +16,7 @@ async function getAllCustomers() {
 
 async function getCustomersByName(name) {
     try{
-        let pool=await sql.connect(config)
+        let pool=await sql2.connect(config)
         let products=await pool.request().query(querys.getByName(name));
         return products;
     }catch(error) {
@@ -25,7 +26,7 @@ async function getCustomersByName(name) {
 
 async function getCustomersById(id) {
     try{
-        let pool=await sql.connect(config)
+        let pool=await sql2.connect(config)
         let product=await pool.request().query(querys.getById(id));
         console.log("q"+querys.getById(id));
         return product;
