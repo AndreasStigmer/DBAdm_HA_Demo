@@ -1,14 +1,10 @@
 const config = {
-    user:"<SQLServerUser>",
-    password:"<Password>",
-    server:"<AG Listener>",
+    server:"Ag2.dbadm2023.local",
     database:"HA_DB",
+    driver: "msnodesqlv8",
     options: {
-        trustedConnection:false,
-        trustServerCertificate:true,
-        enableArithPort:true,
-        
-    },
-    port : 1433
+        trustedConnection: true 
+    }
 }
+module.exports = config;
 module.exports = config;
